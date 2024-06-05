@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const TempHeader = () => {
+function TempHeader() {
     return (
         <div>
             <NavLink to="/">List Page</NavLink>
