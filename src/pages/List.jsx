@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 // import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import { Link } from 'react-router-dom';
@@ -11,22 +11,14 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import FolderIcon from '@mui/icons-material/Folder';
 import Typography from '@mui/material/Typography';
+import { CarsContext } from "../components/contexts/car.context";
 
 function CarsList() {
-    const cars = [
-        {
-            _id: 1,
-            name: "Ferrari",
-            bhp: 1234,
-            avatar_url: "https://carconfigurator.ferrari.com/assets/cars/portofinom/packages/default/car-ferrari-portofino-m_splash.jpg"
-        },
-        {
-            _id: 2,
-            name: "Bugatti",
-            bhp: 666,
-            avatar_url: "https://cdn.motor1.com/images/mgl/VzMq0z/s1/bugatti-chiron-1500.jpg"
-        }
-    ];
+    const { cars, fetchCars } = useContext(CarsContext);
+    useEffect(() => {
+        fetchCars();
+    }, [fetchCars]);
+
     return (
         <>
             <Typography variant="h3" component="h2">
